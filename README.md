@@ -25,13 +25,14 @@ The application provides an endpoint `/chat` to send user prompts and get genera
 
 ## Configuration
 
-1. **API Key**:  
+1. **API Configuration**:  
    Set up the `OPEN_AI_KEY` environment variable with your OpenAI API key.
 
    Example for Linux/macOS:
    ```bash
    export OPEN_AI_KEY=your_openai_api_key
+   export OPEN_AI_ENDPOINT=your_openai_api_endpoint
 
 ## How to Run the Application
    ```bash
-   mvn spring-boot:run -DOPEN_AI_KEY=your_openai_api_key
+   mvn spring-boot:run -DOPEN_AI_KEY=your_openai_api_key -DOPEN_AI_ENDPOINT=your_openai_api_endpoint
