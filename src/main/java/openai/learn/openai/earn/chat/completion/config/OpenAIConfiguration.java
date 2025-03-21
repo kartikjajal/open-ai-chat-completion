@@ -15,4 +15,16 @@ public class OpenAIConfiguration {
 
     @Value("${client-openai-deployment-name}")
     private String deploymentName;
+
+    @Value("${prompt-config-temperature}")
+    private double temperature;
+
+    @Value("${prompt-config-presence-max_tokens}")
+    private int maxTokens;
+
+    @Value("${prompt-config-presence-penalty}")
+    private double presencePenalty;
+
+    @Value("${prompt-config-frequency-penalty}")
+    private double frequencyPenalty;
 }
