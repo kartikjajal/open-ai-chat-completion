@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -21,7 +22,6 @@ public class OpenAIClient {
     private OpenAIAsyncClient openAIAsyncClient;
 
     public List<String> chat(final String input) {
-        log.info(configuration.getOpenAIKey());
         ChatCompletions chatCompletions = openAIAsyncClient.getChatCompletions(configuration.getDeploymentName(),
                                             new ChatCompletionsOptions(List.of(new ChatRequestUserMessage(input))))
                 .block();
@@ -33,5 +33,18 @@ public class OpenAIClient {
                 .map(ChatChoice::getMessage)
                 .map(ChatResponseMessage::getContent)
                 .toList();
+    }
+
+    public List<String> generateImage(final String input) {
+        ImageGenerations imageGenerations = openAIAsyncClient.getImageGenerations(configuration.getDeploymentNameImageGeneration(),
+                        new ImageGenerationOptions(input))
+                .block();
+        return Optional.ofNullable(imageGenerations)
+                .map(ImageGenerations::getData)
+                .orElse(Collections.emptyList())
+                .stream()
+                .map(ImageGenerationData::getUrl)
+                .collect(Collectors.toList());
+
     }
 }

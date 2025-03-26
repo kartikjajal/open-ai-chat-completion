@@ -2,6 +2,7 @@ client-openai-key: ${OPEN_AI_KEY}
 client-openai-endpoint: ${OPEN_AI_ENDPOINT}
 
 client-openai-deployment-name: gpt-35-turbo
+client-openai-deployment-name-image-generation: dall-e-3
 
 prompt-config-temperature: 0.8
 prompt-config-presence-max_tokens: 256

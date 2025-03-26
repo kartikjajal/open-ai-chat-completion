@@ -16,6 +16,11 @@ public class OpenAIConfiguration {
     @Value("${client-openai-deployment-name}")
     private String deploymentName;
 
+    @Value("${client-openai-deployment-name-image-generation}")
+    private String deploymentNameImageGeneration;
+
+
+
     @Value("${prompt-config-temperature}")
     private double temperature;
 
