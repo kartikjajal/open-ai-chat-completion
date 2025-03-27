@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import openai.learn.openai.earn.chat.completion.config.OpenAIConfiguration;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,8 @@ import java.util.Map;
 @Service
 @Slf4j
 public class SemanticKernelImageGenerator {
-    private static final String API_URL = "https://ai-proxy.lab.epam.com/openai/deployments/";
-    public static final String JSON_PATH_IMAGE_URL = "/choices/0/message/custom_content/attachments/1/url";
+    public static final String JSON_PATH_IMAGE_URL_AT_0_INDEX = "/choices/0/message/custom_content/attachments/0/url";
+    public static final String JSON_PATH_IMAGE_URL_AT_1_INDEX = "/choices/0/message/custom_content/attachments/1/url";
 
     @Autowired
     private OpenAIConfiguration configuration;
@@ -49,7 +50,8 @@ public class SemanticKernelImageGenerator {
 
         if (response.statusCode() == 200) {
             var jsonResponse = objectMapper.readTree(response.body());
-            return jsonResponse.at(JSON_PATH_IMAGE_URL).asText();
+            var imagePath = jsonResponse.at(JSON_PATH_IMAGE_URL_AT_0_INDEX).asText();
+            return StringUtils.isEmpty(imagePath) ? jsonResponse.at(JSON_PATH_IMAGE_URL_AT_1_INDEX).asText(): imagePath ;
         } else {
             throw new RuntimeException("Failed to generate image: " + response.body());
         }
