@@ -36,7 +36,7 @@ public class OpenAIClientTest {
 
     @BeforeEach
     public void setUp() {
-        when(configuration.getOpenAIKey()).thenReturn("test-key");
+        //when(configuration.getOpenAIKey()).thenReturn("test-key");
         when(configuration.getDeploymentName()).thenReturn("test-deployment");
     }
 

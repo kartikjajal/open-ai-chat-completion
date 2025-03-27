@@ -2,7 +2,6 @@ package openai.learn.openai.earn.chat.completion.client;
 
 import com.azure.ai.openai.OpenAIAsyncClient;
 import com.azure.ai.openai.models.*;
-import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import openai.learn.openai.earn.chat.completion.config.OpenAIConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ public class OpenAIClient {
     private OpenAIAsyncClient openAIAsyncClient;
 
     public List<String> chat(final String input) {
-        log.info(configuration.getOpenAIKey());
         ChatCompletions chatCompletions = openAIAsyncClient.getChatCompletions(configuration.getDeploymentName(),
                                             new ChatCompletionsOptions(List.of(new ChatRequestUserMessage(input))))
                 .block();
