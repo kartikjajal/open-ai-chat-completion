@@ -1,7 +1,7 @@
 package openai.learn.openai.learn.chat.completion.service;
 
 import openai.learn.openai.earn.chat.completion.client.OpenAIClient;
-import openai.learn.openai.earn.chat.completion.service.ChatCompletionService;
+import openai.learn.openai.earn.chat.completion.service.PromptService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class ChatCompletionServiceTest {
+public class PromptServiceTest {
 
     @Mock
     private OpenAIClient openAIClient;
 
     @InjectMocks
-    private ChatCompletionService chatCompletionService;
+    private PromptService chatCompletionService;
 
     @Test
     public void testChat() {
