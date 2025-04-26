@@ -4,6 +4,7 @@ client-openai-endpoint: ${OPEN_AI_ENDPOINT}
 client-openai-deployment-name: gpt-35-turbo
 #client-openai-deployment-name-image-generation: dall-e-3
 client-openai-deployment-name-image-generation: stability.stable-diffusion-xl
+client-openai-embeddings-deployment-name: text-embedding-ada-002
 
 prompt-config-temperature: 0.8
 prompt-config-presence-max_tokens: 1000
