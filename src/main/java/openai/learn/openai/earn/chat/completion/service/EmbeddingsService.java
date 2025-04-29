@@ -51,8 +51,9 @@ public class EmbeddingsService {
                         .setCollectionName(COLLECTION_NAME)
                         .addAllVector(points)
                         .setWithPayload(WithPayloadSelectorFactory.enable(true))
-                        .setLimit(2)
+                        .setLimit(3)
                         .build())
                 .get();
     }
+
 }
