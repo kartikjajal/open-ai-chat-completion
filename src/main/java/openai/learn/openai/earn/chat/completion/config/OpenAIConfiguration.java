@@ -32,4 +32,8 @@ public class OpenAIConfiguration {
 
     @Value("${prompt-config-frequency-penalty}")
     private double frequencyPenalty;
+
+    @Value("${client-openai-embeddings-deployment-name}")
+    private String embeddingsModel;
+
 }

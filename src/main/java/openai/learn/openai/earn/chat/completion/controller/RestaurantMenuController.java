@@ -1,5 +1,6 @@
 package openai.learn.openai.earn.chat.completion.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import openai.learn.openai.earn.chat.completion.model.RestaurantMenu;
 import openai.learn.openai.earn.chat.completion.service.RestaurantMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
